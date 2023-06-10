@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
-  
- 
+
+
   def create
     list = List.new(list_params)
     list.save
@@ -25,11 +25,14 @@ class ListsController < ApplicationController
     list = List.find(params[:id])
     list.update(list_params)
     redirect_to list_path(list.id)
+    
+    def new
+       @list = List.new 
+    end
   end
 
 private
-  #ストロングパロメータ
   def list_params
-   params.require(:list).permit(:title, :body, :image)
+    params.require(:list).permit(:title, :body, :image)
   end
 end
