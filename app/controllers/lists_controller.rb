@@ -38,7 +38,7 @@ class ListsController < ApplicationController
     list.destroy
     redirect_to '/lists'
   end
-  
+
   def creste
     @list = List.new(list_params)
     if  @list.save
@@ -46,7 +46,7 @@ class ListsController < ApplicationController
     elso
      render :new
     end
-  
+
   end
 
 private
