@@ -5,13 +5,18 @@ class ListsController < ApplicationController
   end
 
   def create
+    def create
+    list.save
+    flash[:notice] = "投稿が完了しました"
+    redirect_to list_path(list.id)
+  end
     @list = List.new(list_params)
     if @list.save
       redirect_to list_path(@list.id)
     else
       render :new
     end
-  end
+end
 
  def  index
     @lists = List.all
