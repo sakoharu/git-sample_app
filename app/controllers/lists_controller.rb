@@ -5,11 +5,12 @@ class ListsController < ApplicationController
   end
 
   def create
-    def create
-    list.save
-    flash[:notice] = "投稿が完了しました"
+    list = List.new(list_params)
+    lost.save
+    flash[:notice] = "投稿が成功しました"
     redirect_to list_path(list.id)
   end
+
     @list = List.new(list_params)
     if @list.save
       redirect_to list_path(@list.id)
